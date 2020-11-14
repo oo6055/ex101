@@ -4,9 +4,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Layout;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout screen;
     AlertDialog.Builder builder;
     Random rnd;
+    Intent si;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,16 +74,15 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setPositiveButton("exit", new DialogInterface.OnClickListener() {
 
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which)
-                            {
+            @Override
+            public void onClick(DialogInterface dialog,
+                                int which) {
 
-                                // When the user click yes button
-                                // then app will close
-                                dialog.dismiss();
-                            }
-                        });
+                // When the user click yes button
+                // then app will close
+                dialog.dismiss();
+            }
+        });
 
         // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
@@ -103,8 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialog,
-                                int which)
-            {
+                                int which) {
                 rnd = new Random();
                 int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                 screen.setBackgroundColor(color);
@@ -115,8 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialog,
-                                int which)
-            {
+                                int which) {
 
                 // When the user click yes button
                 // then app will close
@@ -145,8 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialog,
-                                int which)
-            {
+                                int which) {
                 rnd = new Random();
                 int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                 screen.setBackgroundColor(color);
@@ -156,8 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialog,
-                                int which)
-            {
+                                int which) {
                 screen.setBackgroundColor(Color.WHITE);
             }
         });
@@ -166,8 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(DialogInterface dialog,
-                                int which)
-            {
+                                int which) {
 
                 // When the user click yes button
                 // then app will close
@@ -180,5 +178,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Show the Alert Dialog box
         alertDialog.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menu.add("credits");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        si = new Intent(this, credits.class);
+        startActivity(si);
+        return  true;
     }
 }
