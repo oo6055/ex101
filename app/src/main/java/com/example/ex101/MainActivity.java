@@ -16,8 +16,10 @@ import android.widget.LinearLayout;
 
 import java.util.Random;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity {
-
     LinearLayout screen;
     AlertDialog.Builder builder;
     Random rnd;
@@ -31,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
         screen = (LinearLayout) findViewById(R.id.screen);
     }
 
+    /**
+     * First sit.
+     * short dec: create alert with text
+     *
+     * <p>
+     *      View view
+     * @param	view - see which button pressed
+     * @return	none
+     */
     public void firstSit(View view) {
 
         // Create the object of
@@ -47,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    /**
+     * sit2.
+     * short dec: create alert with text and button
+     *
+     * <p>
+     *      View view
+     * @param	view - see which button pressed
+     * @return	none
+     */
     public void sit2(View view) {
         // Create the object of
         // AlertDialog Builder class
@@ -63,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    /**
+     * sit3.
+     * short dec: create alert with text and button and icon and button for exit
+     *
+     * <p>
+     *      View view
+     * @param	view - see which button pressed
+     * @return	none
+     */
     public void sit3(View view) {
         // Create the object of
         // AlertDialog Builder class
@@ -92,6 +121,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * sit4.
+     * short dec: create alert with text and button and icon and button for exit and to genarate color
+     *
+     * <p>
+     *      View view
+     * @param	view - see which button pressed
+     * @return	none
+     */
     public void sit4(View view) {
         // Create the object of
         // AlertDialog Builder class
@@ -132,6 +170,15 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    /**
+     * sit5.
+     * short dec: create alert with text and button and icon and button for exit and to genarate color and one button for reset
+     *
+     * <p>
+     *      View view
+     * @param	view - see which button pressed
+     * @return	none
+     */
     public void sit5(View view) {
         // Create the object of
         // AlertDialog Builder class
@@ -180,6 +227,18 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    /**
+     * onCreateContextMenu
+     * Short description.
+     * onCreateContextMenu listener use for the ContextMenu
+     * <p>
+     *     ContextMenu menu
+     *     View v
+     *     ContextMenu.ContextMenuInfo menuInfo
+     *
+     * @param  menu - the object,v - the item that selected ,menuInfo - the info
+     * @return	true if it success
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -187,6 +246,16 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * onOptionsItemSelected
+     * Short description.
+     * what happen if an item was selected
+     * <p>
+     *     MenuItem item
+     *
+     * @param  item - the menuItem
+     * @return	true if it success
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         si = new Intent(this, credits.class);
