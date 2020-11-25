@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        rnd = new Random();
         screen = (LinearLayout) findViewById(R.id.screen);
     }
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set Alert Title
         builder.setTitle("Alert !");
+        builder.setMessage("ex1");
 
         // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         // Set Alert Title
         builder.setTitle("Alert !");
         builder.setIcon(R.drawable.untitled);
+        builder.setMessage("ex2");
 
         // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
@@ -100,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         // Set Alert Title
         builder.setTitle("Alert !");
         builder.setIcon(R.drawable.untitled);
+        builder.setMessage("ex3");
 
         builder.setPositiveButton("exit", new DialogInterface.OnClickListener() {
 
@@ -138,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         // Set Alert Title
         builder.setTitle("Alert !");
         builder.setIcon(R.drawable.untitled);
+        builder.setMessage("ex4");
 
 
         builder.setNegativeButton("gen", new DialogInterface.OnClickListener() {
@@ -194,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog,
                                 int which) {
-                rnd = new Random();
+
                 int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                 screen.setBackgroundColor(color);
             }
