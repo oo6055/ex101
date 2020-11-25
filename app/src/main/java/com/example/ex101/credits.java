@@ -5,10 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 /**
  * The type Credits activity
+ *
+ *  @author Ori Ofek <oriofek106@gmail.com> 23/11/2020
+ *  @version 1.0
+ *  @since 23/11/2020
+ *  sort description:
+ *  this is the credits activty that says thanks to the man that created the application
+ *
  */
 public class credits extends AppCompatActivity {
 
@@ -32,7 +40,8 @@ public class credits extends AppCompatActivity {
      */
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menu.add("Main activity");
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.generalmenu, menu);
         return true;
     }
 
@@ -48,7 +57,13 @@ public class credits extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        finish();
+        String whatClicked = (String) item.getTitle();
+
+        if(whatClicked.equals("Main Activity"))
+        {
+            finish();
+        }
+
         return  true;
     }
 }

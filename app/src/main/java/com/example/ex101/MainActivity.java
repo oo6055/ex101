@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -18,12 +19,19 @@ import java.util.Random;
 
 /**
  * The type Main activity.
+ *
+ *  @author Ori Ofek <oriofek106@gmail.com> 23/11/2020
+ *  @version 1.0
+ *  @since 23/11/2020
+ *  sort description:
+ *  this is the activty the implement the exericse that my teacher gave...
  */
 public class MainActivity extends AppCompatActivity {
     LinearLayout screen;
     AlertDialog.Builder builder;
     Random rnd;
     Intent si;
+    int color;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,19 +52,13 @@ public class MainActivity extends AppCompatActivity {
      * @return	none
      */
     public void firstSit(View view) {
-
-        // Create the object of
-        // AlertDialog Builder class
         builder = new AlertDialog.Builder(MainActivity.this);
 
-        // Set Alert Title
         builder.setTitle("Alert !");
         builder.setMessage("ex1");
 
-        // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
 
-        // Show the Alert Dialog box
         alertDialog.show();
     }
 
@@ -70,19 +72,14 @@ public class MainActivity extends AppCompatActivity {
      * @return	none
      */
     public void sit2(View view) {
-        // Create the object of
-        // AlertDialog Builder class
         builder = new AlertDialog.Builder(MainActivity.this);
 
-        // Set Alert Title
         builder.setTitle("Alert !");
         builder.setIcon(R.drawable.untitled);
         builder.setMessage("ex2");
 
-        // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
 
-        // Show the Alert Dialog box
         alertDialog.show();
     }
 
@@ -96,11 +93,8 @@ public class MainActivity extends AppCompatActivity {
      * @return	none
      */
     public void sit3(View view) {
-        // Create the object of
-        // AlertDialog Builder class
         builder = new AlertDialog.Builder(MainActivity.this);
 
-        // Set Alert Title
         builder.setTitle("Alert !");
         builder.setIcon(R.drawable.untitled);
         builder.setMessage("ex3");
@@ -113,16 +107,13 @@ public class MainActivity extends AppCompatActivity {
 
                 // When the user click yes button
                 // then app will close
-                dialog.dismiss();
+                dialog.cancel();
             }
         });
 
-        // Create the Alert dialog
         AlertDialog alertDialog = builder.create();
 
-        // Show the Alert Dialog box
         alertDialog.show();
-
     }
 
     /**
@@ -150,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog,
                                 int which) {
-                rnd = new Random();
                 int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
                 screen.setBackgroundColor(color);
             }
@@ -164,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // When the user click yes button
                 // then app will close
-                dialog.dismiss();
+                dialog.cancel();
             }
         });
 
@@ -185,11 +175,8 @@ public class MainActivity extends AppCompatActivity {
      * @return	none
      */
     public void sit5(View view) {
-        // Create the object of
-        // AlertDialog Builder class
         builder = new AlertDialog.Builder(MainActivity.this);
 
-        // Set Alert Title
         builder.setTitle("Alert !");
         builder.setIcon(R.drawable.untitled);
 
@@ -221,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // When the user click yes button
                 // then app will close
-                dialog.dismiss();
+                dialog.cancel();
             }
         });
 
@@ -246,8 +233,8 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menu.add("credits");
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.generalmenu, menu);
         return true;
     }
 
@@ -263,8 +250,14 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        si = new Intent(this, credits.class);
-        startActivity(si);
+        String whatClicked = (String) item.getTitle();
+
+        if(whatClicked.equals("credits"))
+        {
+            si = new Intent(this, credits.class);
+            startActivity(si);
+        }
+
         return  true;
     }
 }
